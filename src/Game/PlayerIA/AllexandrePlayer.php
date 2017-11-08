@@ -57,9 +57,9 @@ class AllexandrePlayer extends Player
                 $end = $start - 7;
                 while ( $start < $end) {
 
-                    if ($this->result->getChoicesFor($this->opponentSide)[$j] == 'rock') {
+                    if ($this->result->getChoicesFor($this->opponentSide)[$start] == 'rock') {
                         $rockchoice++;
-                    } else if ($this->result->getChoicesFor($this->opponentSide)[$j] == 'paper') {
+                    } else if ($this->result->getChoicesFor($this->opponentSide)[$start] == 'paper') {
                         $paperchoice++;
                     } else {
                         $scissorsChoice++;
