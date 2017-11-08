@@ -42,7 +42,7 @@ class AllexandrePlayer extends Player
                         $concordance++;
                     }
 
-                    if ($concordance >= 7)
+                    if ($concordance >= 6)
                     {
                         return $this->counter($this->counter($this->result->getChoicesFor($this->mySide)));
                     }
