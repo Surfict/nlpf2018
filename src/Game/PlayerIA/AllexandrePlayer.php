@@ -34,10 +34,12 @@ class AllexandrePlayer extends Player
                 //Counter to the opposent that gave the same algo than mine
 
                 $concordance = 0;
+                $startnew = 9;
 
-                for ($i = 9; $i > 0; $i--) {
 
-                    if ($this->result->getChoicesFor($this->opponentSide)[$i] == $this->result->getChoicesFor($this->mySide)[$i - 1])
+                while($startnew  > 0) {
+
+                    if ($this->result->getChoicesFor($this->opponentSide)[$startnew] == $this->result->getChoicesFor($this->mySide)[$startnew - 1])
                     {
                         $concordance++;
                     }
@@ -46,6 +48,7 @@ class AllexandrePlayer extends Player
                     {
                         return $this->counter($this->counter($this->result->getChoicesFor($this->mySide)));
                     }
+                    $startnew--;
                 }
 
 
