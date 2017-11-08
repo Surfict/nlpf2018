@@ -37,14 +37,10 @@ class AllexandrePlayer extends Player
 
 
 
-
-
-
-
                     //We analyse the last 10 things of the opponent. This is a counter to opponent that always do the samte things.
                 $paperchoice = $rockchoice = $scissorsChoice = 0;
 
-                for ($i = $this->result->getNbRound(); $i = $this->result->getNbRound() - 9; $i--) {
+                for ($i = $this->result->getNbRound(); $i <= $this->result->getNbRound() - 9; $i--) {
                     if ($this->result->getChoicesFor($this->opponentSide)[$i] == 'rock') {
                         $rockchoice++;
                     } else if ($this->result->getChoicesFor($this->opponentSide)[$i] == 'paper') {
