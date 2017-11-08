@@ -29,25 +29,43 @@ class AllexandrePlayer extends Player
 
             //Ten round minimal
 
-            if ($this->result->getNbRound() >= 9)
+            if ($this->result->getNbRound() >= 10)
             {
                 //Counter to the opposent that gave the same algo than mine
 
                 $concordance = 0;
+
+                for ($i = 9; $i > 0; $i--) {
+
+                    if ($this->result->getChoicesFor($this->opponentSide)[$i] == $this->result->getChoicesFor($this->mySide)[$i - 1])
+                    {
+                        $concordance++;
+                    }
+
+                    if ($concordance >= 7)
+                    {
+                        return $this->counter($this->counter($this->result->getChoicesFor($this->mySide)));
+                    }
+                }
 
 
 
                     //We analyse the last 10 things of the opponent. This is a counter to opponent that always do the samte things.
                 $paperchoice = $rockchoice = $scissorsChoice = 0;
 
-                for ($i = $this->result->getNbRound(); $i <= $this->result->getNbRound() - 9; $i--) {
-                    if ($this->result->getChoicesFor($this->opponentSide)[$i] == 'rock') {
+                $start = $this->result->getNbRound();
+                $end = $start - 7;
+                while ( $start < $end) {
+
+                    if ($this->result->getChoicesFor($this->opponentSide)[$j] == 'rock') {
                         $rockchoice++;
-                    } else if ($this->result->getChoicesFor($this->opponentSide)[$i] == 'paper') {
+                    } else if ($this->result->getChoicesFor($this->opponentSide)[$j] == 'paper') {
                         $paperchoice++;
                     } else {
                         $scissorsChoice++;
                     }
+
+                    $start--;
                 }
 
                 //If the opponent made 6 time the same thing, maybe the next will be the same. Well i hoppe he will
@@ -86,8 +104,17 @@ class AllexandrePlayer extends Player
                 $choice = 'rock';
             }
         }
-
         return $choice;
+    }
+
+    public function counter($choice)
+    {
+        if ($choice = 'rock')
+            return 'paper';
+        else if ($choice == 'paper')
+            return 'scissors';
+        else
+            return 'rock';
     }
 
     // -------------------------------------    -----------------------------------------------------
