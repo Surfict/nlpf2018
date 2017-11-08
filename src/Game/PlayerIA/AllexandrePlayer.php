@@ -47,7 +47,20 @@ class AllexandrePlayer extends Player
         }
 
         else {
-            $choice = $this->result->getLastChoiceFor($this->opponentSide);
+            if($this->result->getLastChoiceFor($this->opponentSide == 'rock'))
+            {
+              $choice = 'paper';
+            }
+
+            else if($this->result->getLastChoiceFor($this->opponentSide == 'paper'))
+            {
+                $choice = 'scissors';
+
+            }
+
+            else {
+                $choice = 'rock';
+            }
         }
 
         return $choice;
