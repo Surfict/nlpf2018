@@ -41,7 +41,14 @@ class AllexandrePlayer extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
 
-        $choice = parent::scissorsChoice();
+        if ($this->result->getNbRound() == 0)
+        {
+            $choice = 'paper';
+        }
+
+        else {
+            $choice = $this->result->getLastChoiceFor($this->opponentSide);
+        }
 
         return $choice;
     }
