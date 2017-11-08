@@ -27,21 +27,24 @@ class AllexandrePlayer extends Player
         else {
 
 
+            //Ten round minimal
 
             if ($this->result->getNbRound() >= 9)
             {
                 //Counter to the opposent that gave the same algo than mine
 
-                    
+                $concordance = 0;
 
 
 
-                //We analyse the last 10 things of the opponent. This is a counter to opponent that always do the samte things.
-                //Ten round minimal
-                //We analyse the last 10 things of the opponent. This is a counter to opponent that always do the samte things.
+
+
+
+
+                    //We analyse the last 10 things of the opponent. This is a counter to opponent that always do the samte things.
                 $paperchoice = $rockchoice = $scissorsChoice = 0;
 
-                for ($i = $this->result->getNbRound(); $i < $this->result->getNbRound() - 10; $i--) {
+                for ($i = $this->result->getNbRound(); $i = $this->result->getNbRound() - 9; $i--) {
                     if ($this->result->getChoicesFor($this->opponentSide)[$i] == 'rock') {
                         $rockchoice++;
                     } else if ($this->result->getChoicesFor($this->opponentSide)[$i] == 'paper') {
