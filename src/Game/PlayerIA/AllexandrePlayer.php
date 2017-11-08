@@ -25,9 +25,19 @@ class AllexandrePlayer extends Player
         }
 
         else {
-            //Ten round minimal
-            if ($this->result->getNbRound() <= 9)
+
+
+
+            if ($this->result->getNbRound() >= 9)
             {
+                //Counter to the opposent that gave the same algo than mine
+
+                    
+
+
+
+                //We analyse the last 10 things of the opponent. This is a counter to opponent that always do the samte things.
+                //Ten round minimal
                 //We analyse the last 10 things of the opponent. This is a counter to opponent that always do the samte things.
                 $paperchoice = $rockchoice = $scissorsChoice = 0;
 
@@ -54,7 +64,11 @@ class AllexandrePlayer extends Player
                 {
                     return  'rock';
                 }
+
             }
+
+
+
 
 
             //By default, last choice of the opponent.
